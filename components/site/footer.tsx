@@ -6,16 +6,6 @@ export function SiteFooter() {
         <p className="mt-2 text-xs leading-relaxed text-white/30">
           Your Trading Partner for Success
         </p>
-        <p className="mt-1 text-xs leading-relaxed text-white/30">
-          Powered by EVPL ·{" "}
-          <a
-            href="#"
-            className="text-white/40 transition-colors hover:text-[var(--color-gold)]"
-          >
-            @Fingrow.trading
-          </a>{" "}
-          on Instagram
-        </p>
       </div>
       <div className="border-t border-[var(--color-ink-3)] bg-[#060606] px-6 py-5">
         <p className="mx-auto max-w-2xl text-center text-[11px] leading-relaxed text-white/20">
