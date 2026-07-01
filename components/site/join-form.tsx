@@ -12,13 +12,13 @@ export function JoinForm() {
   const [state, formAction] = useActionState(submit, initialState)
 
   return (
-    <section id="join" className="bg-[var(--color-surface)] px-5 py-16 sm:px-8 sm:py-20">
+    <section id="join" className="bg-[#0a0a0a] px-5 py-16 sm:px-8 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.55 }}
-        className="mx-auto max-w-md rounded-2xl bg-[#0a0a0a] p-8 shadow-xl sm:p-10"
+        className="mx-auto max-w-md rounded-2xl border border-white/20 bg-[#0a0a0a] p-8 shadow-xl sm:p-10"
       >
         {state.ok ? (
           <div className="flex flex-col items-center py-8 text-center">
@@ -54,7 +54,7 @@ export function JoinForm() {
                   name="name"
                   type="text"
                   placeholder=""
-                  className="w-full rounded-lg border border-white/10 bg-white px-3.5 py-3 text-sm text-[#0a0a0a] outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
+                  className="w-full rounded-lg border border-white/15 bg-[#1a1a1a] px-3.5 py-3 text-sm text-white outline-none transition-all duration-200 placeholder:text-white/30 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
                 />
               </Field>
               <Field label="WhatsApp number">
@@ -63,14 +63,14 @@ export function JoinForm() {
                   name="phone"
                   type="tel"
                   placeholder=""
-                  className="w-full rounded-lg border border-white/10 bg-white px-3.5 py-3 text-sm text-[#0a0a0a] outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
+                  className="w-full rounded-lg border border-white/15 bg-[#1a1a1a] px-3.5 py-3 text-sm text-white outline-none transition-all duration-200 placeholder:text-white/30 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
                 />
               </Field>
               <Field label="Where are you in your journey?">
                 <select
                   name="stage"
                   defaultValue="beginner"
-                  className="w-full rounded-lg border border-white/10 bg-white px-3.5 py-3 text-sm text-[#0a0a0a] outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
+                  className="w-full rounded-lg border border-white/15 bg-[#1a1a1a] px-3.5 py-3 text-sm text-white outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
                 >
                   <option value="beginner">Just getting started — complete beginner</option>
                   <option value="basic">Some basic knowledge, not consistent yet</option>
