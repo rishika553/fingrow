@@ -21,12 +21,12 @@ const REVIEWS = [
 
 export function Testimonials() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-20">
+    <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
       <Reveal>
-        <span className="mb-3 block text-[11px] uppercase tracking-[0.12em] text-[var(--color-gold)]">
+        <span className="mb-3 block text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
           What members say
         </span>
-        <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+        <h2 className="text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           From the community.
         </h2>
       </Reveal>
@@ -34,20 +34,18 @@ export function Testimonials() {
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {REVIEWS.map((r, i) => (
           <Reveal key={r.author} delay={i * 0.08}>
-            <figure className="group h-full rounded-xl border border-[#e8e8e8] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)] hover:shadow-lg hover:shadow-[var(--color-gold)]/10">
-              <div className="mb-3 flex gap-0.5 text-[var(--color-gold)]">
+            <figure className="group h-full rounded-2xl border border-[#e0ddd6] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)] hover:shadow-lg hover:shadow-[var(--color-gold)]/10">
+              <div className="mb-4 flex gap-1 text-[var(--color-gold)]">
                 {Array.from({ length: 5 }).map((_, s) => (
-                  <Star
-                    key={s}
-                    className="h-3.5 w-3.5 fill-current transition-transform duration-200 group-hover:scale-110"
-                    style={{ transitionDelay: `${s * 30}ms` }}
-                  />
+                  <Star key={s} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              <blockquote className="text-[13px] leading-relaxed text-muted-foreground">
-                {r.quote}
+              <blockquote className="text-sm leading-relaxed text-foreground/70">
+                &ldquo;{r.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-3 text-xs text-foreground/50">— {r.author}</figcaption>
+              <figcaption className="mt-4 text-sm font-medium text-foreground/50">
+                — {r.author}
+              </figcaption>
             </figure>
           </Reveal>
         ))}

@@ -36,12 +36,12 @@ const FEATURES = [
 
 export function Features() {
   return (
-    <section id="learn" className="mx-auto max-w-5xl px-6 py-20">
+    <section id="learn" className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
       <Reveal>
-        <span className="mb-3 block text-[11px] uppercase tracking-[0.12em] text-[var(--color-gold)]">
+        <span className="mb-3 block text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
           What you&apos;ll learn
         </span>
-        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+        <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           A complete trading education, delivered live.
         </h2>
       </Reveal>
@@ -49,14 +49,14 @@ export function Features() {
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {FEATURES.map((f, i) => (
           <Reveal key={f.title} delay={i * 0.06}>
-            <article className="group h-full rounded-xl border border-[#e8e8e8] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)] hover:shadow-lg hover:shadow-[var(--color-gold)]/10">
-              <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg bg-[#fff7e0] text-[var(--color-gold)] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+            <article className="group h-full rounded-2xl border border-[#e0ddd6] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)] hover:shadow-lg hover:shadow-[var(--color-gold)]/10">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#ede8d8] text-[var(--color-gold)] transition-transform duration-300 group-hover:scale-110">
                 <f.icon className="h-5 w-5" />
               </div>
-              <h3 className="mb-2 text-sm font-semibold text-foreground transition-colors group-hover:text-[var(--color-gold)]">
+              <h3 className="mb-2 text-[15px] font-semibold text-foreground transition-colors group-hover:text-[var(--color-gold)]">
                 {f.title}
               </h3>
-              <p className="text-[13px] leading-relaxed text-muted-foreground">{f.desc}</p>
+              <p className="text-sm leading-relaxed text-foreground/60">{f.desc}</p>
             </article>
           </Reveal>
         ))}

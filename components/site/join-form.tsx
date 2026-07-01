@@ -12,41 +12,41 @@ export function JoinForm() {
   const [state, formAction] = useActionState(submit, initialState)
 
   return (
-    <section id="join" className="border-t border-[#ebebeb] bg-[var(--color-surface)] px-6 py-20">
+    <section id="join" className="border-t border-[#e0ddd6] bg-[var(--color-surface)] px-5 py-16 sm:px-8 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.55 }}
-        className="mx-auto max-w-md rounded-2xl border border-[#e8e8e8] bg-background p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/5 sm:p-10"
+        className="mx-auto max-w-md rounded-2xl border border-[#e0ddd6] bg-white p-7 shadow-md sm:p-10"
       >
         {state.ok ? (
-          <div className="flex flex-col items-center py-6 text-center">
-            <CheckCircle2 className="mb-4 h-12 w-12 text-[var(--color-gold)]" />
-            <h2 className="text-xl font-semibold text-foreground">You&apos;re in!</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              We&apos;ve saved your details and we&apos;ll send the WhatsApp group link to your number
-              shortly. Welcome to Fingrow.
+          <div className="flex flex-col items-center py-8 text-center">
+            <CheckCircle2 className="mb-4 h-14 w-14 text-[var(--color-gold)]" />
+            <h2 className="text-xl font-bold text-foreground">You&apos;re in!</h2>
+            <p className="mt-3 text-sm leading-relaxed text-foreground/60">
+              We&apos;ve saved your details and we&apos;ll send the WhatsApp group link to your
+              number shortly. Welcome to Fingrow.
             </p>
           </div>
         ) : (
           <>
-            <h2 className="text-center text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+            <h2 className="text-center text-xl font-bold tracking-tight text-foreground sm:text-2xl">
               Join the Fingrow community
             </h2>
-            <p className="mx-auto mt-1.5 max-w-xs text-center text-sm leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-2 max-w-xs text-center text-sm leading-relaxed text-foreground/55">
               Enter your details and we&apos;ll add you to the WhatsApp learning group. Free, no
               obligation.
             </p>
 
-            <form action={formAction} className="mt-7 flex flex-col gap-4">
+            <form action={formAction} className="mt-7 flex flex-col gap-5">
               <Field label="Your name">
                 <input
                   required
                   name="name"
                   type="text"
                   placeholder="Jane Trader"
-                  className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3.5 py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
+                  className="w-full rounded-xl border border-[#d8d4cc] bg-[#f7f5f1] px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 placeholder:text-foreground/35 focus:border-[var(--color-gold)] focus:bg-white focus:ring-2 focus:ring-[var(--color-gold)]/20"
                 />
               </Field>
               <Field label="WhatsApp number">
@@ -55,14 +55,14 @@ export function JoinForm() {
                   name="phone"
                   type="tel"
                   placeholder="+91 90000 00000"
-                  className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3.5 py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
+                  className="w-full rounded-xl border border-[#d8d4cc] bg-[#f7f5f1] px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 placeholder:text-foreground/35 focus:border-[var(--color-gold)] focus:bg-white focus:ring-2 focus:ring-[var(--color-gold)]/20"
                 />
               </Field>
               <Field label="Where are you in your journey?">
                 <select
                   name="stage"
-                  className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3.5 py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
                   defaultValue="beginner"
+                  className="w-full rounded-xl border border-[#d8d4cc] bg-[#f7f5f1] px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-white focus:ring-2 focus:ring-[var(--color-gold)]/20"
                 >
                   <option value="beginner">Just getting started — complete beginner</option>
                   <option value="basic">Some basic knowledge, not consistent yet</option>
@@ -74,16 +74,16 @@ export function JoinForm() {
               {state.error ? (
                 <div
                   role="alert"
-                  className="flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2.5 text-sm text-red-700"
+                  className="flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
                 >
-                  <AlertCircle className="h-4 w-4 shrink-0" />
-                  {state.error}
+                  <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                  <span>{state.error}</span>
                 </div>
               ) : null}
 
               <SubmitButton />
 
-              <p className="mt-1 text-center text-xs leading-relaxed text-muted-foreground/70">
+              <p className="text-center text-xs leading-relaxed text-foreground/40">
                 No spam. No sales pressure. Just the group link and a welcome.
               </p>
             </form>
@@ -101,7 +101,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="group mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--color-gold)] py-3.5 text-[15px] font-semibold text-black transition-all duration-200 hover:bg-[var(--color-gold-light)] hover:shadow-lg hover:shadow-[var(--color-gold)]/25 disabled:cursor-not-allowed disabled:opacity-70"
+      className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-gold)] py-4 text-base font-semibold text-black transition-all duration-200 hover:bg-[var(--color-gold-light)] hover:shadow-lg hover:shadow-[var(--color-gold)]/25 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
     >
       {pending ? (
         <>
@@ -121,7 +121,7 @@ function SubmitButton() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-medium text-foreground/70">{label}</span>
+      <span className="mb-1.5 block text-sm font-semibold text-foreground/70">{label}</span>
       {children}
     </label>
   )
