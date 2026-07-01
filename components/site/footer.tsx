@@ -4,18 +4,6 @@ export function SiteFooter() {
       <div className="border-t border-[#2a2a2a] px-6 py-12 text-center">
         <div className="text-lg font-bold text-[var(--color-gold)]">Fingrow</div>
         <p className="mt-2 text-sm text-white/50">Your Trading Partner for Success</p>
-        <p className="mt-1 text-sm text-white/40">
-          Powered by EVPL ·{" "}
-          <a
-            href="https://instagram.com/fingrow.trading"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-2 transition-colors hover:text-[var(--color-gold)]"
-          >
-            @Fingrow.trading
-          </a>{" "}
-          on Instagram
-        </p>
       </div>
       <div className="border-t border-[#1e1e1e] bg-[#060606] px-6 py-6">
         <p className="mx-auto max-w-2xl text-center text-xs leading-relaxed text-white/30">
