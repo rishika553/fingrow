@@ -49,14 +49,14 @@ export function Features() {
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {FEATURES.map((f, i) => (
           <Reveal key={f.title} delay={i * 0.06}>
-            <article className="group h-full rounded-2xl border border-[#e0ddd6] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)] hover:shadow-lg hover:shadow-[var(--color-gold)]/10">
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#ede8d8] text-[var(--color-gold)] transition-transform duration-300 group-hover:scale-110">
+            <article className="group h-full rounded-2xl border border-white/20 bg-[#0a0a0a] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)] hover:shadow-lg hover:shadow-[var(--color-gold)]/10">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-[var(--color-gold)] transition-transform duration-300 group-hover:scale-110">
                 <f.icon className="h-5 w-5" />
               </div>
-              <h3 className="mb-2 text-[15px] font-semibold text-foreground transition-colors group-hover:text-[var(--color-gold)]">
+              <h3 className="mb-2 text-[15px] font-semibold text-white transition-colors group-hover:text-[var(--color-gold)]">
                 {f.title}
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+              <p className="text-sm leading-relaxed text-white/60">{f.desc}</p>
             </article>
           </Reveal>
         ))}

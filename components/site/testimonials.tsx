@@ -34,16 +34,16 @@ export function Testimonials() {
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {REVIEWS.map((r, i) => (
           <Reveal key={r.author} delay={i * 0.08}>
-            <figure className="group h-full rounded-2xl border border-[#e0ddd6] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)] hover:shadow-lg hover:shadow-[var(--color-gold)]/10">
+            <figure className="group h-full rounded-2xl border border-white/20 bg-[#0a0a0a] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)] hover:shadow-lg hover:shadow-[var(--color-gold)]/10">
               <div className="mb-4 flex gap-1 text-[var(--color-gold)]">
                 {Array.from({ length: 5 }).map((_, s) => (
                   <Star key={s} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              <blockquote className="text-sm leading-relaxed text-muted-foreground">
+              <blockquote className="text-sm leading-relaxed text-white/70">
                 &ldquo;{r.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-4 text-sm font-medium text-foreground/50">
+              <figcaption className="mt-4 text-sm font-medium text-white/40">
                 — {r.author}
               </figcaption>
             </figure>
