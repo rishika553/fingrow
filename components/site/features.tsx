@@ -56,7 +56,7 @@ export function Features() {
               <h3 className="mb-2 text-[15px] font-semibold text-foreground transition-colors group-hover:text-[var(--color-gold)]">
                 {f.title}
               </h3>
-              <p className="text-sm leading-relaxed text-foreground/60">{f.desc}</p>
+              <p className="text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
             </article>
           </Reveal>
         ))}

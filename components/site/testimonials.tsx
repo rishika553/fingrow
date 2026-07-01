@@ -40,7 +40,7 @@ export function Testimonials() {
                   <Star key={s} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              <blockquote className="text-sm leading-relaxed text-foreground/70">
+              <blockquote className="text-sm leading-relaxed text-muted-foreground">
                 &ldquo;{r.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-4 text-sm font-medium text-foreground/50">
