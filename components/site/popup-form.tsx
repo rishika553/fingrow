@@ -90,7 +90,7 @@ export function PopupForm() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-md max-h-[85vh] overflow-y-auto rounded-2xl border border-[#e8e8e8] bg-background p-6 shadow-2xl sm:p-8"
+              className="relative w-full max-w-sm sm:max-w-md max-h-[90vh] overflow-y-auto rounded-xl sm:rounded-2xl border border-[#e8e8e8] bg-background p-4 sm:p-6 shadow-2xl"
             >
               {/* Close button */}
               <button
@@ -102,16 +102,16 @@ export function PopupForm() {
               </button>
 
               {state.ok ? (
-                <div className="flex flex-col items-center py-4 sm:py-6 text-center">
-                  <CheckCircle2 className="mb-4 h-10 w-10 sm:h-12 sm:w-12 text-[var(--color-gold)]" />
-                  <h2 className="text-lg sm:text-xl font-semibold text-foreground">You&apos;re in!</h2>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <div className="flex flex-col items-center py-3 sm:py-4 text-center">
+                  <CheckCircle2 className="mb-3 h-8 w-8 sm:h-10 sm:w-10 text-[var(--color-gold)]" />
+                  <h2 className="text-base sm:text-lg font-semibold text-foreground">You&apos;re in!</h2>
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground">
                     We&apos;ve saved your details and we&apos;ll send the WhatsApp group link to
                     your number shortly. Welcome to Fingrow.
                   </p>
                   <button
                     onClick={() => setOpen(false)}
-                    className="mt-6 rounded-lg bg-[var(--color-gold)] px-6 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-[var(--color-gold-light)]"
+                    className="mt-4 rounded-lg bg-[var(--color-gold)] px-5 py-2 text-xs sm:text-sm font-semibold text-black transition-colors hover:bg-[var(--color-gold-light)]"
                   >
                     Close
                   </button>
@@ -119,27 +119,27 @@ export function PopupForm() {
               ) : (
                 <>
                   {/* Gold accent bar */}
-                  <div className="mb-6 h-1 w-12 rounded-full bg-[var(--color-gold)]" />
+                  <div className="mb-4 h-1 w-8 rounded-full bg-[var(--color-gold)]" />
 
                   <h2
                     id="popup-title"
-                    className="text-lg sm:text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
+                    className="text-base sm:text-lg font-semibold tracking-tight text-foreground"
                   >
                     Join the Fingrow community
                   </h2>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-1 text-xs sm:text-sm leading-relaxed text-muted-foreground">
                     Enter your details and we&apos;ll add you to the WhatsApp learning group. Free,
                     no obligation.
                   </p>
 
-                  <form action={formAction} className="mt-6 flex flex-col gap-4">
+                  <form action={formAction} className="mt-4 sm:mt-6 flex flex-col gap-3 sm:gap-4">
                     <Field label="Your name">
                       <input
                         required
                         name="name"
                         type="text"
                         placeholder="Jane Trader"
-                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3 py-2 sm:px-3.5 sm:py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
+                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
                       />
                     </Field>
                     <Field label="WhatsApp number">
@@ -148,14 +148,14 @@ export function PopupForm() {
                         name="phone"
                         type="tel"
                         placeholder="+91 90000 00000"
-                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3 py-2 sm:px-3.5 sm:py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
+                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
                       />
                     </Field>
                     <Field label="Where are you in your journey?">
                       <select
                         name="stage"
                         defaultValue="beginner"
-                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3 py-2 sm:px-3.5 sm:py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
+                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
                       >
                         <option value="beginner">Just getting started — complete beginner</option>
                         <option value="basic">Some basic knowledge, not consistent yet</option>
@@ -167,9 +167,9 @@ export function PopupForm() {
                     {state.error ? (
                       <div
                         role="alert"
-                        className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 sm:py-2.5 text-xs sm:text-sm text-red-700"
+                        className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 px-2.5 py-2 sm:px-3 text-xs sm:text-sm text-red-700"
                       >
-                        <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                        <AlertCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 mt-0.5" />
                         <span>{state.error}</span>
                       </div>
                     ) : null}
@@ -197,19 +197,19 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="group mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--color-gold)] py-3 sm:py-3.5 text-sm sm:text-[15px] font-semibold text-black transition-all duration-200 hover:bg-[var(--color-gold-light)] hover:shadow-lg hover:shadow-[var(--color-gold)]/25 disabled:cursor-not-allowed disabled:opacity-70"
+      className="group mt-2 sm:mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--color-gold)] py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-black transition-all duration-200 hover:bg-[var(--color-gold-light)] hover:shadow-lg hover:shadow-[var(--color-gold)]/25 disabled:cursor-not-allowed disabled:opacity-70"
     >
       {pending ? (
         <>
-          <Loader2 className="h-4 w-4 animate-spin" />
+          <Loader2 className="h-3.5 w-3.5 animate-spin" />
           <span className="hidden sm:inline">Adding you...</span>
-          <span className="sm:hidden">Adding...</span>
+          <span className="sm:hidden text-xs">Adding...</span>
         </>
       ) : (
         <>
           <span className="hidden sm:inline">Join the free learning group</span>
-          <span className="sm:hidden">Join group</span>
-          <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+          <span className="sm:hidden text-xs">Join group</span>
+          <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-200 group-hover:translate-x-1" />
         </>
       )}
     </button>
@@ -219,7 +219,7 @@ function SubmitButton() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-medium text-foreground/70">{label}</span>
+      <span className="mb-1 block text-xs sm:text-xs font-medium text-foreground/70">{label}</span>
       {children}
     </label>
   )
