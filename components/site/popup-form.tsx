@@ -35,6 +35,18 @@ export function PopupForm() {
     return () => window.removeEventListener("keydown", onKey)
   }, [])
 
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [open])
+
   // Close on backdrop click
   const handleBackdrop = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === overlayRef.current) setOpen(false)
@@ -46,13 +58,14 @@ export function PopupForm() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Open join form"
-        className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-5 py-3 text-[13px] font-semibold text-black shadow-lg shadow-[var(--color-gold)]/30 transition-all duration-200 hover:-translate-y-1 hover:bg-[var(--color-gold-light)] hover:shadow-xl hover:shadow-[var(--color-gold)]/40 active:scale-95"
+        className="fixed bottom-4 right-4 z-40 flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-4 py-2.5 text-xs font-semibold text-black shadow-lg shadow-[var(--color-gold)]/30 transition-all duration-200 hover:-translate-y-1 hover:bg-[var(--color-gold-light)] hover:shadow-xl hover:shadow-[var(--color-gold)]/40 active:scale-95 sm:bottom-6 sm:right-6 sm:px-5 sm:py-3 sm:text-[13px]"
       >
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-black/30 opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-black/50" />
         </span>
-        Join free
+        <span className="hidden sm:inline">Join free</span>
+        <span className="sm:hidden">Join</span>
       </button>
 
       {/* ── Modal overlay ── */}
@@ -66,7 +79,7 @@ export function PopupForm() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={handleBackdrop}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-3 backdrop-blur-sm sm:px-4"
             role="dialog"
             aria-modal="true"
             aria-labelledby="popup-title"
@@ -77,21 +90,21 @@ export function PopupForm() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-md rounded-2xl border border-[#e8e8e8] bg-background p-8 shadow-2xl sm:p-10"
+              className="relative w-full max-w-md max-h-[85vh] overflow-y-auto rounded-2xl border border-[#e8e8e8] bg-background p-6 shadow-2xl sm:p-8"
             >
               {/* Close button */}
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close"
-                className="absolute right-4 top-4 flex h-7 w-7 items-center justify-center rounded-full text-foreground/40 transition-colors hover:bg-[#f2f2f2] hover:text-foreground"
+                className="absolute right-3 top-3 sm:right-4 sm:top-4 flex h-6 w-6 items-center justify-center rounded-full text-foreground/40 transition-colors hover:bg-[#f2f2f2] hover:text-foreground sm:h-7 sm:w-7"
               >
                 <X className="h-4 w-4" />
               </button>
 
               {state.ok ? (
-                <div className="flex flex-col items-center py-6 text-center">
-                  <CheckCircle2 className="mb-4 h-12 w-12 text-[var(--color-gold)]" />
-                  <h2 className="text-xl font-semibold text-foreground">You&apos;re in!</h2>
+                <div className="flex flex-col items-center py-4 sm:py-6 text-center">
+                  <CheckCircle2 className="mb-4 h-10 w-10 sm:h-12 sm:w-12 text-[var(--color-gold)]" />
+                  <h2 className="text-lg sm:text-xl font-semibold text-foreground">You&apos;re in!</h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     We&apos;ve saved your details and we&apos;ll send the WhatsApp group link to
                     your number shortly. Welcome to Fingrow.
@@ -110,7 +123,7 @@ export function PopupForm() {
 
                   <h2
                     id="popup-title"
-                    className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
+                    className="text-lg sm:text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
                   >
                     Join the Fingrow community
                   </h2>
@@ -126,7 +139,7 @@ export function PopupForm() {
                         name="name"
                         type="text"
                         placeholder="Jane Trader"
-                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3.5 py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
+                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3 py-2 sm:px-3.5 sm:py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
                       />
                     </Field>
                     <Field label="WhatsApp number">
@@ -135,14 +148,14 @@ export function PopupForm() {
                         name="phone"
                         type="tel"
                         placeholder="+91 90000 00000"
-                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3.5 py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
+                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3 py-2 sm:px-3.5 sm:py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
                       />
                     </Field>
                     <Field label="Where are you in your journey?">
                       <select
                         name="stage"
                         defaultValue="beginner"
-                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3.5 py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
+                        className="w-full rounded-lg border border-[#ddd] bg-[#fafafa] px-3 py-2 sm:px-3.5 sm:py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:bg-background focus:ring-2 focus:ring-[var(--color-gold)]/20"
                       >
                         <option value="beginner">Just getting started — complete beginner</option>
                         <option value="basic">Some basic knowledge, not consistent yet</option>
@@ -154,10 +167,10 @@ export function PopupForm() {
                     {state.error ? (
                       <div
                         role="alert"
-                        className="flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2.5 text-sm text-red-700"
+                        className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 sm:py-2.5 text-xs sm:text-sm text-red-700"
                       >
-                        <AlertCircle className="h-4 w-4 shrink-0" />
-                        {state.error}
+                        <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                        <span>{state.error}</span>
                       </div>
                     ) : null}
 
@@ -184,16 +197,18 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="group mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--color-gold)] py-3.5 text-[15px] font-semibold text-black transition-all duration-200 hover:bg-[var(--color-gold-light)] hover:shadow-lg hover:shadow-[var(--color-gold)]/25 disabled:cursor-not-allowed disabled:opacity-70"
+      className="group mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--color-gold)] py-3 sm:py-3.5 text-sm sm:text-[15px] font-semibold text-black transition-all duration-200 hover:bg-[var(--color-gold-light)] hover:shadow-lg hover:shadow-[var(--color-gold)]/25 disabled:cursor-not-allowed disabled:opacity-70"
     >
       {pending ? (
         <>
           <Loader2 className="h-4 w-4 animate-spin" />
-          Adding you...
+          <span className="hidden sm:inline">Adding you...</span>
+          <span className="sm:hidden">Adding...</span>
         </>
       ) : (
         <>
-          Join the free learning group
+          <span className="hidden sm:inline">Join the free learning group</span>
+          <span className="sm:hidden">Join group</span>
           <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
         </>
       )}
