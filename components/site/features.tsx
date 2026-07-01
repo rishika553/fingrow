@@ -41,7 +41,7 @@ export function Features() {
         <span className="mb-3 block text-[11px] uppercase tracking-[0.12em] text-[var(--color-gold)]">
           What you&apos;ll learn
         </span>
-        <h2 className="whitespace-nowrap text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
           A complete trading education, delivered live.
         </h2>
       </Reveal>

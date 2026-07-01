@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react"
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-[var(--color-ink)] px-6 pb-16 pt-20 text-center">
+    <section id="top" className="relative overflow-hidden bg-[var(--color-ink)] px-5 pb-14 pt-16 text-center sm:px-6 sm:pb-16 sm:pt-20">
       {/* subtle animated accent glow */}
       <div
         aria-hidden="true"
