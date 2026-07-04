@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "motion/react"
 import { ArrowRight } from "lucide-react"
 
@@ -7,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-[var(--color-ink)] px-5 pb-16 pt-16 text-center sm:px-8 sm:pb-20 sm:pt-24"
+      className="relative overflow-hidden bg-[var(--color-ink)] px-5 pb-16 pt-12 text-center sm:px-8 sm:pb-20 sm:pt-20"
     >
       {/* Glow */}
       <div
@@ -16,30 +17,39 @@ export function Hero() {
       />
 
       <div className="relative mx-auto max-w-3xl">
-        <motion.h1
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.08 }}
-          className="mx-auto mb-5 max-w-2xl text-balance text-[1.75rem] font-bold leading-[1.2] tracking-tight text-white sm:text-5xl"
-        >
-          Learn how financial markets work — with traders who actually{" "}
-          <em className="not-italic text-[var(--color-gold)]">explain it</em>.
-        </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.16 }}
-          className="mx-auto mb-10 max-w-md text-pretty text-base leading-relaxed text-white/70 sm:text-lg"
+          transition={{ duration: 0.45 }}
+          className="mb-5 flex justify-center"
         >
-          A structured community for forex and crypto. Live sessions, real market analysis, and
-          expert guidance — beginner to confident.
+          <Image
+            src="/fingrow.jpeg"
+            alt="Fingrow"
+            width={220}
+            height={90}
+            className="h-24 w-auto object-contain sm:h-32"
+            priority
+          />
+        </motion.div>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-10 text-base font-medium tracking-wide text-white/70 sm:text-lg"
+        >
+          Your Trading Partner For Success
         </motion.p>
 
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.24 }}
+          transition={{ duration: 0.55, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-3"
         >
           <a
