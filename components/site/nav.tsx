@@ -5,7 +5,7 @@ export function SiteNav() {
     <nav className="sticky top-0 z-50 flex h-14 items-center justify-between border-b border-[var(--color-ink-border)] bg-[rgba(10,10,10,0.92)] px-4 backdrop-blur-md sm:px-6">
       <a href="#top" className="group flex items-center">
         <Image
-          src="/fingrow.jpeg"
+          src="/logo.png"
           alt="Fingrow – Your Trading Partner for Success"
           width={120}
           height={50}

@@ -26,11 +26,11 @@ export function Hero() {
           className="mb-5 flex justify-center"
         >
           <Image
-            src="/fingrow.jpeg"
+            src="/logo.png"
             alt="Fingrow"
-            width={220}
-            height={90}
-            className="h-24 w-auto object-contain sm:h-32"
+            width={550}
+            height={300}
+            className="h-40 w-auto object-contain sm:h-48"
             priority
           />
         </motion.div>
