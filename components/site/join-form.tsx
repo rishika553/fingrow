@@ -1,15 +1,35 @@
 "use client"
 
-import { useActionState } from "react"
+import { useActionState,useEffect } from "react"
 import { useFormStatus } from "react-dom"
 import { motion } from "motion/react"
 import { ArrowRight, CheckCircle2, Loader2, AlertCircle } from "lucide-react"
 import { submit, type State } from "@/app/actions/join"
-
+declare global {
+  interface Window {
+    fbq?: (...args: any[]) => void;
+  }
+}
 const initialState: State = { ok: false }
 
 export function JoinForm() {
   const [state, formAction] = useActionState(submit, initialState)
+
+useEffect(() => {
+  
+
+  if (
+    state.ok &&
+    typeof window !== "undefined" &&
+    typeof window.fbq === "function"
+  ) {
+    
+
+    window.fbq("track", "Lead", {
+      content_name: "Fingrow Community",
+    });
+  }
+}, [state.ok]);
 
   return (
     <section id="join" className="bg-[#0a0a0a] px-5 py-16 sm:px-8 sm:py-20">

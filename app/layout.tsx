@@ -58,7 +58,7 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased overflow-x-hidden">
 
-        <Script id="facebook-pixel" strategy="afterInteractive">
+        <Script id="facebook-" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
