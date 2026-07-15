@@ -8,9 +8,18 @@ const ITEMS = [
 export function TrustBar() {
   return (
     <div className="overflow-hidden border-b border-[#2a2a2a] bg-[#111] py-4">
-      <div className="flex w-max animate-marquee">
+      <div
+        className="flex w-max"
+        style={{
+          animation: "marquee 28s linear infinite",
+        }}
+      >
         {[0, 1].map((dup) => (
-          <ul key={dup} className="flex shrink-0 items-center" aria-hidden={dup === 1}>
+          <ul
+            key={dup}
+            className="flex shrink-0 items-center"
+            aria-hidden={dup === 1}
+          >
             {ITEMS.map((item) => (
               <li
                 key={item}
@@ -23,6 +32,13 @@ export function TrustBar() {
           </ul>
         ))}
       </div>
+
+      <style>{`
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+      `}</style>
     </div>
   )
 }

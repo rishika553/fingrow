@@ -9,19 +9,21 @@ export type State = {
 }
 
 export async function submit(_prev: State, formData: FormData): Promise<State> {
-  const name = String(formData.get("name") ?? "").trim()
-  const phone = String(formData.get("phone") ?? "").trim()
-  const stage = String(formData.get("stage") ?? "").trim()
+  const name    = String(formData.get("name")    ?? "").trim()
+  const city    = String(formData.get("city")    ?? "").trim()
+  const phone   = String(formData.get("phone")   ?? "").trim()
+  const level   = String(formData.get("level")   ?? "").trim()
 
-  if (!name || !phone) {
-    return { ok: false, error: "Please fill in your name and WhatsApp number." }
+  if (!name || !city || !phone) {
+    return { ok: false, error: "Please fill in all required fields." }
   }
 
   try {
     const body = new URLSearchParams({
       name,
+      city,
       phone,
-      stage,
+      level,
       timestamp: new Date().toISOString(),
     })
 
@@ -29,7 +31,6 @@ export async function submit(_prev: State, formData: FormData): Promise<State> {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body,
-      // Apps Script returns a redirect to its CDN; follow it.
       redirect: "follow",
     })
 

@@ -1,38 +1,33 @@
 "use client"
 
-import { useActionState,useEffect } from "react"
+import { useActionState } from "react"
 import { useFormStatus } from "react-dom"
 import { motion } from "motion/react"
 import { ArrowRight, CheckCircle2, Loader2, AlertCircle } from "lucide-react"
 import { submit, type State } from "@/app/actions/join"
-declare global {
-  interface Window {
-    fbq?: (...args: any[]) => void;
-  }
-}
+
 const initialState: State = { ok: false }
 
 export function JoinForm() {
   const [state, formAction] = useActionState(submit, initialState)
 
-useEffect(() => {
-  
-
-  if (
-    state.ok &&
-    typeof window !== "undefined" &&
-    typeof window.fbq === "function"
-  ) {
-    
-
-    window.fbq("track", "Lead", {
-      content_name: "Fingrow Community",
-    });
-  }
-}, [state.ok]);
-
   return (
     <section id="join" className="bg-[#0a0a0a] px-5 py-16 sm:px-8 sm:py-20">
+
+      {/* Trust strip above form */}
+      <div className="mx-auto mb-8 max-w-md">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <span className="flex items-center gap-1.5 text-xs text-white/40">
+            <span className="text-green-400">✓</span> Registered Indian company (EVPL)
+          </span>
+          <span className="flex items-center gap-1.5 text-xs text-white/40">
+            <span className="text-green-400">✓</span> 10,000+ members since 2022
+          </span>
+          <span className="flex items-center gap-1.5 text-xs text-white/40">
+            <span className="text-green-400">✓</span> No tips. No signals. Pure education.
+          </span>
+        </div>
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -45,13 +40,13 @@ useEffect(() => {
             <CheckCircle2 className="mb-4 h-14 w-14 text-[var(--color-gold)]" />
             <h2 className="text-xl font-bold text-white">You&apos;re in!</h2>
             <p className="mt-3 text-sm leading-relaxed text-white/60">
-              Welcome to Fingrow! Click below to join the WhatsApp community group now.
+              Details saved! Click below to join the WhatsApp community now.
             </p>
             <a
               href="https://chat.whatsapp.com/F3JA4gChfe3HVFGbUvQPWg?s=cl&p=a&ilr=1&amv=1"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[var(--color-gold)] px-6 py-3.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-[var(--color-gold-light)] hover:shadow-lg hover:shadow-[var(--color-gold)]/25 active:scale-95"
+              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[var(--color-gold)] px-6 py-3.5 text-sm font-semibold text-black transition-all hover:bg-[var(--color-gold-light)] hover:shadow-lg active:scale-95"
             >
               Join WhatsApp Group
               <ArrowRight className="h-4 w-4" />
@@ -68,34 +63,45 @@ useEffect(() => {
             </p>
 
             <form action={formAction} className="mt-7 flex flex-col gap-4">
-              <Field label="Your name">
+              <Field label="Name">
                 <input
                   required
                   name="name"
                   type="text"
-                  placeholder=""
-                  className="w-full rounded-lg border border-white/15 bg-[#1a1a1a] px-3.5 py-3 text-sm text-white outline-none transition-all duration-200 placeholder:text-white/30 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
+                  placeholder="Your full name"
+                  className="w-full rounded-lg border border-white/15 bg-[#1a1a1a] px-3.5 py-3 text-sm text-white outline-none transition-all placeholder:text-white/30 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
                 />
               </Field>
-              <Field label="WhatsApp number">
+
+              <Field label="City">
+                <input
+                  required
+                  name="city"
+                  type="text"
+                  placeholder="Your city"
+                  className="w-full rounded-lg border border-white/15 bg-[#1a1a1a] px-3.5 py-3 text-sm text-white outline-none transition-all placeholder:text-white/30 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
+                />
+              </Field>
+
+              <Field label="Contact Number">
                 <input
                   required
                   name="phone"
                   type="tel"
-                  placeholder=""
-                  className="w-full rounded-lg border border-white/15 bg-[#1a1a1a] px-3.5 py-3 text-sm text-white outline-none transition-all duration-200 placeholder:text-white/30 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
+                  placeholder="+91 90000 00000"
+                  className="w-full rounded-lg border border-white/15 bg-[#1a1a1a] px-3.5 py-3 text-sm text-white outline-none transition-all placeholder:text-white/30 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
                 />
               </Field>
-              <Field label="Where are you in your journey?">
+
+              <Field label="Experience Level">
                 <select
-                  name="stage"
-                  defaultValue="beginner"
-                  className="w-full rounded-lg border border-white/15 bg-[#1a1a1a] px-3.5 py-3 text-sm text-white outline-none transition-all duration-200 focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
+                  name="level"
+                  defaultValue="fresher"
+                  className="w-full rounded-lg border border-white/15 bg-[#1a1a1a] px-3.5 py-3 text-sm text-white outline-none transition-all focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
                 >
-                  <option value="beginner">Just getting started — complete beginner</option>
-                  <option value="basic">Some basic knowledge, not consistent yet</option>
-                  <option value="intermediate">Intermediate — want structured learning</option>
-                  <option value="trading">Already trading, want community & analysis</option>
+                  <option value="fresher">Fresher</option>
+                  <option value="fresher-learning">Fresher + Learning</option>
+                  <option value="experienced">Experienced</option>
                 </select>
               </Field>
 
@@ -124,7 +130,6 @@ useEffect(() => {
 
 function SubmitButton() {
   const { pending } = useFormStatus()
-
   return (
     <button
       type="submit"
@@ -132,15 +137,9 @@ function SubmitButton() {
       className="group mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--color-gold)] py-3.5 text-[15px] font-semibold text-black transition-all duration-200 hover:bg-[var(--color-gold-light)] hover:shadow-lg hover:shadow-[var(--color-gold)]/25 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
     >
       {pending ? (
-        <>
-          <Loader2 className="h-4 w-4 animate-spin" />
-          Adding you...
-        </>
+        <><Loader2 className="h-4 w-4 animate-spin" /> Adding you...</>
       ) : (
-        <>
-          Join the free learning group
-          <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-        </>
+        <>Trading Journey Shuru Karein <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></>
       )}
     </button>
   )

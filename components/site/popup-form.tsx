@@ -45,7 +45,7 @@ export function PopupForm() {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-black/30 opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-black/50" />
         </span>
-        Join free
+        Shuru Karein
       </button>
 
       {/* Modal */}
@@ -95,7 +95,7 @@ export function PopupForm() {
                     href="https://chat.whatsapp.com/F3JA4gChfe3HVFGbUvQPWg?s=cl&p=a&ilr=1&amv=1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[var(--color-gold)] px-6 py-3 text-sm font-semibold text-black transition-all hover:bg-[var(--color-gold-light)] hover:shadow-lg hover:shadow-[var(--color-gold)]/25 active:scale-95"
+                    className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[var(--color-gold)] px-6 py-3 text-sm font-semibold text-black transition-all hover:bg-[var(--color-gold-light)] active:scale-95"
                   >
                     Join WhatsApp Group
                     <ArrowRight className="h-4 w-4" />
@@ -115,16 +115,25 @@ export function PopupForm() {
                   </p>
 
                   <form action={formAction} className="mt-5 flex flex-col gap-3">
-                    <Field label="Your name">
+                    <Field label="Name">
                       <input
                         required
                         name="name"
                         type="text"
-                        placeholder="Jane Trader"
+                        placeholder="Your full name"
                         className="w-full rounded-lg border border-white/10 bg-white px-3 py-2.5 text-sm text-[#0a0a0a] outline-none transition-all focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
                       />
                     </Field>
-                    <Field label="WhatsApp number">
+                    <Field label="City">
+                      <input
+                        required
+                        name="city"
+                        type="text"
+                        placeholder="Your city"
+                        className="w-full rounded-lg border border-white/10 bg-white px-3 py-2.5 text-sm text-[#0a0a0a] outline-none transition-all focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
+                      />
+                    </Field>
+                    <Field label="Contact Number">
                       <input
                         required
                         name="phone"
@@ -133,16 +142,15 @@ export function PopupForm() {
                         className="w-full rounded-lg border border-white/10 bg-white px-3 py-2.5 text-sm text-[#0a0a0a] outline-none transition-all focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
                       />
                     </Field>
-                    <Field label="Where are you in your journey?">
+                    <Field label="Experience Level">
                       <select
-                        name="stage"
-                        defaultValue="beginner"
+                        name="level"
+                        defaultValue="fresher"
                         className="w-full rounded-lg border border-white/10 bg-white px-3 py-2.5 text-sm text-[#0a0a0a] outline-none transition-all focus:border-[var(--color-gold)] focus:ring-2 focus:ring-[var(--color-gold)]/30"
                       >
-                        <option value="beginner">Complete beginner</option>
-                        <option value="basic">Some knowledge, not consistent</option>
-                        <option value="intermediate">Intermediate — want structure</option>
-                        <option value="trading">Already trading, want community</option>
+                        <option value="fresher">Fresher</option>
+                        <option value="fresher-learning">Fresher + Learning</option>
+                        <option value="experienced">Experienced</option>
                       </select>
                     </Field>
 
@@ -183,7 +191,7 @@ function PopupSubmitButton() {
       {pending ? (
         <><Loader2 className="h-4 w-4 animate-spin" /> Adding you...</>
       ) : (
-        <>Join the free learning group <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></>
+        <>Trading Journey Shuru Karein <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></>
       )}
     </button>
   )
