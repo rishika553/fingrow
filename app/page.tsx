@@ -8,11 +8,10 @@ import { Testimonials } from "@/components/site/testimonials"
 import { JoinForm } from "@/components/site/join-form"
 import { SiteFooter } from "@/components/site/footer"
 import { PopupForm } from "@/components/site/popup-form"
-import { StickyCTA } from "@/components/site/sticky-cta"
 
 export default function Page() {
   return (
-    <main className="bg-background pb-16">
+    <main className="bg-background">
       <SiteNav />
       <Hero />
       <TrustBar />
@@ -23,7 +22,6 @@ export default function Page() {
       <JoinForm />
       <SiteFooter />
       <PopupForm />
-      <StickyCTA />
     </main>
   )
 }

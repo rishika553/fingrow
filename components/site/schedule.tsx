@@ -86,21 +86,6 @@ export function Schedule() {
         ))}
       </div>
 
-      {/* CTA below cards */}
-      <Reveal delay={0.2}>
-        <div className="mt-8 flex flex-col items-center gap-3 rounded-2xl border border-[var(--color-gold)]/30 bg-[var(--color-gold)]/5 p-6 text-center sm:flex-row sm:justify-between sm:text-left">
-          <div>
-            <p className="text-sm font-semibold text-white">Start free — then upgrade when you&apos;re ready.</p>
-            <p className="mt-0.5 text-xs text-white/50">Join the WhatsApp group now. No commitment. No pressure.</p>
-          </div>
-          <a
-            href="#join"
-            className="shrink-0 rounded-xl bg-[var(--color-gold)] px-6 py-3 text-sm font-semibold text-black transition-all hover:bg-[var(--color-gold-light)] hover:shadow-lg active:scale-95"
-          >
-            Trading Journey Shuru Karein →
-          </a>
-        </div>
-      </Reveal>
     </section>
   )
 }
