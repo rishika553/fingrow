@@ -3,7 +3,6 @@ import { Reveal } from "./reveal"
 
 const FREE_ITEMS = [
   "WhatsApp community group access",
-  "Beginner crash course",
   "Community support & peer learning",
 ]
 
@@ -11,7 +10,6 @@ const PAID_ITEMS = [
   "Live education sessions — Mon, Wed & Fri at 8 PM",
   "Live market analysis with experts — Tue & Thu",
   "Daily trade signal breakdowns and market updates",
-  "Crash course access for faster onboarding",
   "Lifetime community support",
 ]
 
@@ -27,7 +25,7 @@ export function Pricing() {
             Start free. Upgrade when you&apos;re ready.
           </h2>
           <p className="mt-3 max-w-xl text-base leading-relaxed text-white/60">
-            The WhatsApp group and crash course are completely free — no catch.
+            The WhatsApp group is completely free — no catch.
             Full live sessions and expert analysis require a membership.
           </p>
         </Reveal>

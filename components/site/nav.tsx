@@ -17,7 +17,7 @@ export function SiteNav() {
         href="#join"
         className="rounded-md bg-[var(--color-gold)] px-3 py-1.5 text-xs font-medium text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-gold-light)] sm:px-4 sm:py-2 sm:text-[13px]"
       >
-        Trading Journey Shuru Karein
+        Join Now
       </a>
     </nav>
   )

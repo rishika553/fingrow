@@ -66,7 +66,7 @@ export function Hero() {
             href="#join"
             className="group inline-flex items-center gap-2 rounded-xl bg-[var(--color-gold)] px-8 py-4 text-base font-semibold text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-gold-light)] hover:shadow-xl hover:shadow-[var(--color-gold)]/30 active:scale-95"
           >
-            Trading Journey Shuru Karein
+            Start Your Trading Journey
             <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
           </a>
 

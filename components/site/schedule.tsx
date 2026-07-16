@@ -43,9 +43,9 @@ export function Schedule() {
               <Unlock className="h-4 w-4" />
             </span>
             <div>
-              <p className="text-sm font-semibold text-white">Free — WhatsApp group + crash course</p>
+              <p className="text-sm font-semibold text-white">Free — WhatsApp community group</p>
               <p className="mt-0.5 text-xs leading-relaxed text-white/50">
-                Join the community group instantly. Get access to the beginner crash course. No payment needed.
+                Join the community group instantly. No payment needed.
               </p>
             </div>
           </div>

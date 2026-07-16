@@ -139,7 +139,7 @@ function SubmitButton() {
       {pending ? (
         <><Loader2 className="h-4 w-4 animate-spin" /> Adding you...</>
       ) : (
-        <>Trading Journey Shuru Karein <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></>
+        <>Join Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></>
       )}
     </button>
   )
